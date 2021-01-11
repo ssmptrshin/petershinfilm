@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './core/components/SideBar';
+import styled from 'styled-components';
+import Videos from './videos/components/Videos';
+
+const Container = styled.div`
+  position: relative;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 80%;
+  min-height: 100%;
+  background-color: transparent;
+`;
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Sidebar/>
+    <Container>
+      <Videos />
+    </Container>
+    </>
   );
 }
 
