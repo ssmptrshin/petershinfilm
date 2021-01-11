@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/petershinfilm/static/css/main.14441146.chunk.css",
+    "main.js": "/petershinfilm/static/js/main.697fc733.chunk.js",
+    "main.js.map": "/petershinfilm/static/js/main.697fc733.chunk.js.map",
+    "runtime-main.js": "/petershinfilm/static/js/runtime-main.2704f941.js",
+    "runtime-main.js.map": "/petershinfilm/static/js/runtime-main.2704f941.js.map",
+    "static/js/2.27901637.chunk.js": "/petershinfilm/static/js/2.27901637.chunk.js",
+    "static/js/2.27901637.chunk.js.map": "/petershinfilm/static/js/2.27901637.chunk.js.map",
+    "index.html": "/petershinfilm/index.html",
+    "static/css/main.14441146.chunk.css.map": "/petershinfilm/static/css/main.14441146.chunk.css.map",
+    "static/js/2.27901637.chunk.js.LICENSE.txt": "/petershinfilm/static/js/2.27901637.chunk.js.LICENSE.txt",
+    "static/media/Logo2-01.6023c5c6.png": "/petershinfilm/static/media/Logo2-01.6023c5c6.png",
+    "static/media/breathedeeper.34f84d68.png": "/petershinfilm/static/media/breathedeeper.34f84d68.png",
+    "static/media/comininhot.e0fa72bf.png": "/petershinfilm/static/media/comininhot.e0fa72bf.png",
+    "static/media/holo.d642b8da.png": "/petershinfilm/static/media/holo.d642b8da.png",
+    "static/media/place.64316e9f.png": "/petershinfilm/static/media/place.64316e9f.png",
+    "static/media/teachme.84a857d0.png": "/petershinfilm/static/media/teachme.84a857d0.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2704f941.js",
+    "static/js/2.27901637.chunk.js",
+    "static/css/main.14441146.chunk.css",
+    "static/js/main.697fc733.chunk.js"
+  ]
+}
