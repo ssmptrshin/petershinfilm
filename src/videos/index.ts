@@ -14,9 +14,9 @@ const createNewVideo = (newTitle: string, newVideoLink: string, newImgUrl: strin
 }
 
 export const videosList: Video[] = [
-    createNewVideo('PLACE', 'placeholder', place),
-    createNewVideo('HOLO', 'placeholder', holo),
-    createNewVideo('TEACH ME', 'placeholder', teachme),
-    createNewVideo('BREATHE DEEPER', 'placeholder', breathedeeper),
-    createNewVideo('COMING IN HOT', 'placeholder', comininhot)
+    createNewVideo('PLACE', 'https://www.youtube.com/watch?v=c-kRy20BeTc', place),
+    createNewVideo('HOLO', 'https://www.youtube.com/watch?v=vAJcu_ETgOw', holo),
+    createNewVideo('TEACH ME', 'https://www.youtube.com/watch?v=TyzCXTSmd9s', teachme),
+    createNewVideo('BREATHE DEEPER', 'https://www.youtube.com/watch?v=ENpOT29jAPE', breathedeeper),
+    createNewVideo('COMING IN HOT', 'https://www.youtube.com/watch?v=PhUYz9e1cDI', comininhot)
 ];

@@ -5,10 +5,9 @@ import { videosList } from 'src/videos';
 import { Video } from '../types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Modal, Backdrop, Fade } from '@material-ui/core';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
+import ClosePlayer from 'src/assets/img/closePlayer.svg';
 
-
-const videoClipsArray: string[] = ['something', 'title', 'another', 'random'];
 
 const ThumbnailText = styled.span`
     position: absolute;
@@ -71,6 +70,17 @@ const VideosContainer = styled.div`
     height: 100%;
 `;
 
+const PlayerWrapper = styled.div `
+    width: 50vw;
+    max-width: 88.89vh;
+    /* 16/9 = 1.778 */
+    height: 28.12vw;
+    /* height:width ratio = 9/16 = .5625  */
+    max-height: 50vh;
+`;
+
+
+
 const useStyles = makeStyles(theme => ({
     modal: {
         display: 'flex',
@@ -82,50 +92,59 @@ const useStyles = makeStyles(theme => ({
 const Videos: React.FC = () => {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
+    const [currrentVideo, setCurrentVideo] = React.useState('placeholder')
+    let selectedVideoIndex: number = 0;
 
-    const handleOpen = () => {
+    const setKey = (key: number): number => {
+        selectedVideoIndex = key;
+        return key;
+    }
+
+    const handleOpen = (key: number) => {return () => {
+        setCurrentVideo(videosList[key].videoLink);
         setOpen(true);
-    };
+    }};
 
     const handleClose = () => {
         setOpen(false);
     };
 
-    const renderVideosGrid = (video: Video) => {
+    const renderVideosGrid = (video: Video, key: number) => {
         return (
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={12} md={6} lg={6} xl={4}>
                 <VideoThumbnail style={{
                     backgroundImage: `url(${video.imageUrl})`
-                }} >
+                }} key={setKey(key)} onClick={handleOpen(key)}>
                     <ThumbnailText>{video.title}</ThumbnailText>
                 </VideoThumbnail>
             </Grid>
         );
-        
     };
-
     return (
         <>
-        <VideosContainer onClick={handleOpen}>
+        <VideosContainer>
             <Grid container spacing={2} justify={'center'} direction={'row'} alignItems={'center'}>
-                {videosList.map(video => renderVideosGrid(video))}
+                {videosList.map((video, key) => renderVideosGrid(video, key))}
             </Grid>
         </VideosContainer>
         <Modal
-        className={classes.modal}
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        BackdropComponent={Backdrop}
-        BackdropProps={{
-            timeout: 500,
-        }}
+            className={classes.modal}
+            open={open}
+            onClose={handleClose}
+            closeAfterTransition
+            BackdropComponent={Backdrop}
+            BackdropProps={{
+                timeout: 500,
+            }}
         >
-        <Fade in={open}>
-            <div>
-                <ReactPlayer url={'https://www.youtube.com/watch?v=J_i1XQmp0e0&t=373s'} width={1280} height={720} controls={true}/>
-            </div>
-        </Fade>
+            <Fade in={open}>
+                <div style={{outline: 'none'}}>
+                    <img src={ClosePlayer} style={{float: 'right'}} />
+                    <PlayerWrapper>
+                        <ReactPlayer className='player' url={currrentVideo} width='100%' height='100%' controls={true}/>
+                    </PlayerWrapper>
+                </div>
+            </Fade>
         </Modal>
         </>
     )
